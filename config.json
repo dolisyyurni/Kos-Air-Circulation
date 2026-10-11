@@ -1,0 +1,31 @@
+{
+  "building": {
+    "width": 18.0,
+    "depth": 18.0,
+    "floor_height": 3.2,
+    "floors": 3
+  },
+  "simulation": {
+    "grid_size": 56,
+    "time_step": 0.012,
+    "viscosity": 0.045,
+    "inlet_speed": 0.9,
+    "solver_steps": 55,
+    "pressure_iterations": 24,
+    "particle_count": 700,
+    "particle_speed_scale": 0.8
+  },
+  "visualization": {
+    "window_size": [1400, 900],
+    "background": "black",
+    "wall_color": "white",
+    "slow_speed": 0.25,
+    "fast_speed": 0.65,
+    "show_particles": true
+  },
+  "hand_tracking": {
+    "enabled": true,
+    "camera_index": 0,
+    "max_hands": 1
+  }
+}

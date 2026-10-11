@@ -1,18 +1,20 @@
 import numpy as np
 import pyvista as pv
+from src.settings import load_config
 
-WIDTH = 18.0
-DEPTH = 18.0
-FLOOR_HEIGHT = 3.2
-FLOORS = 3
+CONFIG = load_config()
+WIDTH = float(CONFIG["building"]["width"])
+DEPTH = float(CONFIG["building"]["depth"])
+FLOOR_HEIGHT = float(CONFIG["building"]["floor_height"])
+FLOORS = int(CONFIG["building"]["floors"])
 TOTAL_HEIGHT = FLOOR_HEIGHT * FLOORS
 
 # Open space in the middle (x)
-COURTYARD = (7.0, 11.0, 4.5, 10.0)
+COURTYARD = {"x1": 7.0, "x2": 11.0, "y1": 4.5, "y2": 10.0}
 
-plotter = pv.Plotter(window_size=(1400, 900))
-plotter.set_background("black")
-LINE_COLOR = "white"
+plotter = pv.Plotter(window_size=CONFIG["visualization"]["window_size"])
+plotter.set_background(CONFIG["visualization"]["background"])
+LINE_COLOR = CONFIG["visualization"]["wall_color"]
 LINE_WIDTH = 2
 
 # Boarding house (kos) building
@@ -203,5 +205,3 @@ plotter.show_grid(
 
 plotter.camera_position = "iso"
 plotter.camera.zoom(0.85)
-
-plotter.show()
